@@ -49,14 +49,15 @@ class _ShowCaseState extends State<ShowCase> {
     //     currentPage = controller2.page;
     //   });
     // });
-    return Padding(
-      padding: EdgeInsets.all(10.0),
-      child: ListView.builder(
-        itemCount: 2,
-        itemBuilder: (BuildContext context, int count) {
-          return showCaseItems[count];
-        },
-      ),
-    );
+    return Container();
+    // return Padding(
+    //   padding: EdgeInsets.all(10.0),
+    //   child: ListView.builder(
+    //     itemCount: 2,
+    //     itemBuilder: (BuildContext context, int count) {
+    //       return showCaseItems[count];
+    //     },
+    //   ),
+    // );
   }
 }

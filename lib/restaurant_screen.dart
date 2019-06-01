@@ -13,29 +13,67 @@ final restaurantScreen = Screen(
       return ListView(
         children: <Widget>[
           _NewsCard(
-            headImageAssetPath: 'assets/eggs_in_skillet.jpg',
-            icon: Icons.fastfood,
+            headImageAssetPath: 'assets/app-643.png',
+            profilePic: 'assets/10.jpg',
             iconBackgroundColor: Colors.orange,
-            title: 'il Domacca',
-            subtitle: '78 5TH AVENUE, NEW YORK',
+            title: 'MetaFlutter',
+            subtitle: 'Learn, explore and experiment with Flutter widgets directly on your phone.',
             heartCount: 84,
             tags: ['app', 'web'],
           ),
           _NewsCard(
-            headImageAssetPath: 'assets/spoons_of_spices.jpg',
+            headImageAssetPath: 'assets/2.png',
             iconBackgroundColor: Colors.red,
-            icon: Icons.local_dining,
-            title: 'Mc Grady',
-            subtitle: '79 5th Avenue',
+            profilePic: 'assets/11.jpg',
+            title: 'AntiClamper',
+            subtitle: 'Simple, smart parking tracker',
             heartCount: 79,
+            tags: ['app', 'android','open Bugs'],
           ),
           _NewsCard(
-            headImageAssetPath: 'assets/steak_on_cooktop.jpg',
-            icon: Icons.fastfood,
+            headImageAssetPath: 'assets/3.png',
+            profilePic: 'assets/44.jpg',
             iconBackgroundColor: Colors.purpleAccent,
-            title: 'Steaks a lot',
-            subtitle: '22 6th Avenue',
+            title: 'REQU by Ameba',
+            subtitle: 'REQU App is the best way to sell your unique skills online.',
             heartCount: 36,
+            tags: ['app', 'iOS'],
+          ),
+          _NewsCard(
+            headImageAssetPath: 'assets/4.png',
+            iconBackgroundColor: Colors.red,
+            profilePic: 'assets/45.jpg',
+            title: 'Cipherly',
+            subtitle: 'A Password Manager built using flutter!',
+            heartCount: 79,
+            tags: ['app', 'android','open Bugs'],
+          ),
+          _NewsCard(
+            headImageAssetPath: 'assets/5.png',
+            profilePic: 'assets/2.jpg',
+            iconBackgroundColor: Colors.purpleAccent,
+            title: 'GiveActions',
+            subtitle: 'Realize actions to make free donations to associative projects!',
+            heartCount: 36,
+            tags: ['app', 'iOS'],
+          ),
+          _NewsCard(
+            headImageAssetPath: 'assets/6.png',
+            iconBackgroundColor: Colors.red,
+            profilePic: 'assets/67.jpg',
+            title: 'Deko Gallery 1',
+            subtitle: 'The art of ornament through the ages: 100 plates, 2000 specimens of all styles',
+            heartCount: 79,
+            tags: ['app', 'android','open Bugs'],
+          ),
+          _NewsCard(
+            headImageAssetPath: 'assets/7.png',
+            profilePic: 'assets/78.jpg',
+            iconBackgroundColor: Colors.purpleAccent,
+            title: 'The Pocket Piano',
+            subtitle: 'The Pocket Piano is a fully featured piano optimized for all screen sizes.',
+            heartCount: 187,
+            tags: ['app', 'iOS'],
           ),
         ],
       );
@@ -43,7 +81,7 @@ final restaurantScreen = Screen(
 
 class _NewsCard extends StatelessWidget {
   final String headImageAssetPath;
-  final IconData icon;
+  final String profilePic;
   final Color iconBackgroundColor;
   final String title;
   final String subtitle;
@@ -52,7 +90,7 @@ class _NewsCard extends StatelessWidget {
 
   _NewsCard({
     this.headImageAssetPath,
-    this.icon,
+    this.profilePic,
     this.iconBackgroundColor,
     this.title,
     this.subtitle,
@@ -93,16 +131,18 @@ class _NewsCard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Container(
-                    padding: EdgeInsets.all(10.0),
-                    decoration: BoxDecoration(
-                      color: iconBackgroundColor,
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    child: Icon(
-                      icon,
-                      color: Colors.white,
-                    ),
-                  ),
+                     padding: EdgeInsets.all(2.0),
+                     decoration: BoxDecoration(
+                       color: iconBackgroundColor,
+                       borderRadius: BorderRadius.circular(5.0),
+                     ),
+                     child: Image.asset(
+                       profilePic,
+                       fit: BoxFit.fill,
+                       width: 40,
+                       height: 40,
+                     )
+                   ),
                 ),
                 Expanded(
                   child: Column(
