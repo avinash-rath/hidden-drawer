@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                           )),
                       Container(
                           decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: Colors.black.withOpacity(0.7),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(25.0))),
                           child: Padding(
@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                                     }),
                                 TrackingTextInput(
                                   label: "Password",
-                                  hint: "Try 'bears'...",
+                                  hint: "It's a password...",
                                   isObscured: true,
                                   onCaretMoved: (Offset caret) {
                                     _teddyController.coverEyes(caret != null);
@@ -129,7 +129,19 @@ class _LoginPageState extends State<LoginPage> {
                                       Navigator.of(context).push(CupertinoPageRoute(
                                         builder: (context) => HomePage(),
                                       ));
-                                    })
+                                    }),
+                                    FlatButton(
+                                      // onPressed: () {
+                                      //   Navigator.of(context).pushReplacement(
+                                      //     CupertinoPageRoute(
+                                      //       builder: (context) => Signup(),
+                                      //     )
+                                      //   );
+                                      // },
+                                      child: Text('Signup?', style: TextStyle(color: Colors.teal,fontSize: 25.0),),
+                                      onPressed: () {},
+                                      color: Colors.transparent,
+                                    ),
                               ],
                             )),
                           )),
