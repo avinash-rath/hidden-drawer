@@ -8,12 +8,11 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.0
-  flare_flutter:
+  flutter_vector_icons:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  
 
 
 # For information on the generic Dart part of this file, see the
@@ -36,7 +35,6 @@ flutter:
     - assets/spoons_of_spices.jpg
     - assets/other_screen_bk.jpg
     - assets/other_screen_card_photo.jpg
-    - assets/Teddy.flr
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
