@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:hidden_drawer/collaboration.dart';
 
+import 'showcase.dart';
+
 //import 'menu.dart';
 
 class ZoomScaffold extends StatefulWidget {
@@ -133,6 +135,10 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
                 icon: Icon(MaterialCommunityIcons.account_group_outline),
                 activeIcon: Icon(MaterialCommunityIcons.account_group,color: Theme.of(context).primaryColor,),
                 title: Text('collaboration'.toUpperCase())),
+            new BottomNavigationBarItem(
+                icon: Icon(MaterialCommunityIcons.account_arrow_right_outline),
+                activeIcon: Icon(MaterialCommunityIcons.account_group,color: Theme.of(context).primaryColor,),
+                title: Text('ShowCase'.toUpperCase())),
             ],
           ),
           body: _view,
@@ -145,6 +151,7 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
     switch(index){
       case 0: return widget.contentScreen.contentBuilder(context); 
       case 1: return Collaborations();
+      case 2: return ShowCase();
       default: return widget.contentScreen.contentBuilder(context);
     }
   }

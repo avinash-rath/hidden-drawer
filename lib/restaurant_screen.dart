@@ -4,7 +4,7 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'zoom_scaffold.dart';
 
 final restaurantScreen = Screen(
-    title: 'The Paleo Paddock',
+    title: 'HOME',
     background: DecorationImage(
       fit: BoxFit.cover,
       image: AssetImage('assets/grey_grunge_bk.jpg'),

@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                                     }),
                                 TrackingTextInput(
                                   label: "Password",
-                                  hint: "Try 'bears'...",
+                                  hint: "It's a password...",
                                   isObscured: true,
                                   onCaretMoved: (Offset caret) {
                                     _teddyController.coverEyes(caret != null);
