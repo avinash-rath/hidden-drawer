@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hidden_drawer/zoom_scaffold.dart';
 
+import 'login_screen.dart';
 import 'menu.dart';
 import 'restaurant_screen.dart';
 import 'second_screen.dart';
@@ -11,12 +12,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Hidden Drawer',
+      title: 'Hack_19',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: HomePage(),
+      home: LoginPage(),
     );
   }
 }
