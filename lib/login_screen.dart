@@ -129,7 +129,19 @@ class _LoginPageState extends State<LoginPage> {
                                       Navigator.of(context).push(CupertinoPageRoute(
                                         builder: (context) => HomePage(),
                                       ));
-                                    })
+                                    }),
+                                    FlatButton(
+                                      // onPressed: () {
+                                      //   Navigator.of(context).pushReplacement(
+                                      //     CupertinoPageRoute(
+                                      //       builder: (context) => Signup(),
+                                      //     )
+                                      //   );
+                                      // },
+                                      child: Text('Signup?', style: TextStyle(color: Colors.teal,fontSize: 25.0),),
+                                      onPressed: () {},
+                                      color: Colors.transparent,
+                                    ),
                               ],
                             )),
                           )),
