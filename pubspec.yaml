@@ -29,13 +29,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/dark_grunge_bk.jpg
-    - assets/wood_bk.jpg
-    - assets/eggs_in_skillet.jpg
-    - assets/steak_on_cooktop.jpg
-    - assets/spoons_of_spices.jpg
-    - assets/other_screen_bk.jpg
-    - assets/other_screen_card_photo.jpg
+    - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
