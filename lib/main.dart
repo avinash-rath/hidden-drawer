@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.teal,
+        brightness: Brightness.dark
       ),
       home: LoginPage(),
     );
@@ -33,19 +34,19 @@ class _HomePageState extends State<HomePage> {
     items: [
       new MenuItem(
         id: 'restaurant',
-        title: 'THE PADDOCK',
+        title: 'HOME PAGE',
       ),
       new MenuItem(
         id: 'other1',
-        title: 'THE HERO',
+        title: 'ACCOUNT',
       ),
       new MenuItem(
         id: 'other2',
-        title: 'HELP US GROW',
+        title: 'SETTINGS',
       ),
       new MenuItem(
         id: 'other3',
-        title: 'SETTINGS',
+        title: 'LOGOUT',
       ),
     ],
 );

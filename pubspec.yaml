@@ -37,6 +37,7 @@ flutter:
     - assets/other_screen_bk.jpg
     - assets/other_screen_card_photo.jpg
     - assets/Teddy.flr
+    - assets/grey_grunge_bk.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

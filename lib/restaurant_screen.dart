@@ -7,7 +7,7 @@ final restaurantScreen = Screen(
     title: 'The Paleo Paddock',
     background: DecorationImage(
       fit: BoxFit.cover,
-      image: AssetImage('assets/wood_bk.jpg'),
+      image: AssetImage('assets/grey_grunge_bk.jpg'),
     ),
     contentBuilder: (BuildContext context) {
       return ListView(
