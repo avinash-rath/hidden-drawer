@@ -5,6 +5,7 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/rendering.dart';
 import 'main.dart';
 import 'signin_button.dart';
+import 'signup.dart';
 import 'teddy_controller.dart';
 import 'tracking_text_input.dart';
 
@@ -80,7 +81,8 @@ class _LoginPageState extends State<LoginPage> {
                     children: <Widget>[
                       Container(
                           height: 200,
-						  padding: const EdgeInsets.only(left: 30.0, right:30.0),
+                          padding:
+                              const EdgeInsets.only(left: 30.0, right: 30.0),
                           child: FlareActor(
                             "assets/Teddy.flr",
                             shouldClip: false,
@@ -126,22 +128,25 @@ class _LoginPageState extends State<LoginPage> {
                                             color: Colors.white)),
                                     onPressed: () {
                                       _teddyController.submitPassword();
-                                      Navigator.of(context).push(CupertinoPageRoute(
+                                      Navigator.of(context)
+                                          .push(CupertinoPageRoute(
                                         builder: (context) => HomePage(),
                                       ));
                                     }),
-                                    FlatButton(
-                                      // onPressed: () {
-                                      //   Navigator.of(context).pushReplacement(
-                                      //     CupertinoPageRoute(
-                                      //       builder: (context) => Signup(),
-                                      //     )
-                                      //   );
-                                      // },
-                                      child: Text('Signup?', style: TextStyle(color: Colors.teal,fontSize: 25.0),),
-                                      onPressed: () {},
-                                      color: Colors.transparent,
-                                    ),
+                                FlatButton(
+                                  onPressed: () {
+                                    Navigator.of(context)
+                                        .pushReplacement(CupertinoPageRoute(
+                                      builder: (context) => Signup(),
+                                    ));
+                                  },
+                                  child: Text(
+                                    'Signup?',
+                                    style: TextStyle(
+                                        color: Colors.teal, fontSize: 25.0),
+                                  ),
+                                  color: Colors.transparent,
+                                ),
                               ],
                             )),
                           )),
