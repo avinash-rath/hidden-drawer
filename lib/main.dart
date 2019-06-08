@@ -33,25 +33,25 @@ class _HomePageState extends State<HomePage> {
   final menu = new Menu(
     items: [
       new MenuItem(
-        id: 'restaurant',
+        id: 'dashboard',
         title: 'HOME PAGE',
       ),
       new MenuItem(
-        id: 'other1',
+        id: 'account',
         title: 'ACCOUNT',
       ),
       new MenuItem(
-        id: 'other2',
+        id: 'settings',
         title: 'SETTINGS',
       ),
       new MenuItem(
-        id: 'other3',
+        id: 'logout',
         title: 'LOGOUT',
       ),
     ],
 );
 
-  var selectedMenuItemId = 'restaurant';
+  var selectedMenuItemId = 'dashboard';
   var activeScreen = restaurantScreen;
 
   @override
@@ -63,15 +63,27 @@ class _HomePageState extends State<HomePage> {
         selectedItemId: selectedMenuItemId,
         onMenuItemSelected: (String itemId) {
           selectedMenuItemId = itemId;
-          if(itemId == 'restaurant'){
-            setState(() {
-             activeScreen = restaurantScreen; 
+          switch(itemId){
+            case 'restaurant' : setState(() {
+              activeScreen = restaurantScreen;
             });
-          }else{
-            setState(() {
-             activeScreen = secondScreen; 
-            });
+            break;
+
+            case 'logout' : Navigator.of(context).pop(); break;
+
+            default : setState(() {
+              activeScreen = secondScreen;
+            }); 
           }
+          // if(itemId == 'restaurant'){
+          //   setState(() {
+          //    activeScreen = restaurantScreen; 
+          //   });
+          // }else{
+          //   setState(() {
+          //    activeScreen = secondScreen; 
+          //   });
+          // }
         },
       ),
     );

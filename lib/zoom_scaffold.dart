@@ -18,7 +18,6 @@ class ZoomScaffold extends StatefulWidget {
 
 class _ZoomScaffoldState extends State<ZoomScaffold>
     with TickerProviderStateMixin {
-
   Widget _view;
   int _currentIndex = 0;
   MenuController menuController;
@@ -26,7 +25,6 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
   Curve scaleUpCurve = Interval(0.0, 1.0, curve: Curves.easeOut);
   Curve slideOutCurve = Interval(0.0, 1.0, curve: Curves.easeOut);
   Curve slideInCurve = Interval(0.0, 1.0, curve: Curves.easeOut);
-
 
   @override
   void initState() {
@@ -123,22 +121,29 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
             onTap: (int index) {
               setState(() {
                 _view = _getView(index);
-              _currentIndex = index;
+                _currentIndex = index;
               });
             },
             items: [
               new BottomNavigationBarItem(
-                icon: Icon(MaterialCommunityIcons.view_dashboard_outline),
-                activeIcon: Icon(MaterialCommunityIcons.view_dashboard),
-                title: Text('feed'.toUpperCase())),
-            new BottomNavigationBarItem(
-                icon: Icon(MaterialCommunityIcons.account_group_outline),
-                activeIcon: Icon(MaterialCommunityIcons.account_group,color: Theme.of(context).primaryColor,),
-                title: Text('collaboration'.toUpperCase())),
-            new BottomNavigationBarItem(
-                icon: Icon(MaterialCommunityIcons.account_arrow_right_outline),
-                activeIcon: Icon(MaterialCommunityIcons.account_group,color: Theme.of(context).primaryColor,),
-                title: Text('ShowCase'.toUpperCase())),
+                  icon: Icon(MaterialCommunityIcons.view_dashboard_outline),
+                  activeIcon: Icon(MaterialCommunityIcons.view_dashboard),
+                  title: Text('feed'.toUpperCase())),
+              new BottomNavigationBarItem(
+                  icon: Icon(MaterialCommunityIcons.account_group_outline),
+                  activeIcon: Icon(
+                    MaterialCommunityIcons.account_group,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  title: Text('Collaboration'.toUpperCase())),
+              new BottomNavigationBarItem(
+                  icon:
+                      Icon(MaterialCommunityIcons.account_arrow_right_outline),
+                  activeIcon: Icon(
+                    MaterialCommunityIcons.account_group,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  title: Text('ShowCase'.toUpperCase())),
             ],
           ),
           body: _view,
@@ -147,12 +152,16 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
     );
   }
 
-  Widget _getView (int index) {
-    switch(index){
-      case 0: return widget.contentScreen.contentBuilder(context); 
-      case 1: return Collaborations();
-      case 2: return ShowCase();
-      default: return widget.contentScreen.contentBuilder(context);
+  Widget _getView(int index) {
+    switch (index) {
+      case 0:
+        return widget.contentScreen.contentBuilder(context);
+      case 1:
+        return Collaborations();
+      case 2:
+        return ShowCase();
+      default:
+        return widget.contentScreen.contentBuilder(context);
     }
   }
 
@@ -202,10 +211,8 @@ class _ZoomScaffoldMenuControllerState
     return scaffoldState.menuController;
   }
 
-  _onMenuControllerChange () {
-    setState(() {
-      
-    });
+  _onMenuControllerChange() {
+    setState(() {});
   }
 
   @override
@@ -277,7 +284,8 @@ class MenuController extends ChangeNotifier {
     _animationController.reverse();
   }
 
-  toggle() { // Toggling the states.
+  toggle() {
+    // Toggling the states.
     if (state == MenuState.closed) {
       open();
       notifyListeners(); // Callback to listeners for state change.
@@ -286,7 +294,6 @@ class MenuController extends ChangeNotifier {
       notifyListeners();
     }
   }
-
 }
 
 enum MenuState {

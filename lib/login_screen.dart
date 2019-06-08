@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:hidden_drawer/zoom_scaffold.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/rendering.dart';
 import 'main.dart';
@@ -8,25 +7,6 @@ import 'signin_button.dart';
 import 'signup.dart';
 import 'teddy_controller.dart';
 import 'tracking_text_input.dart';
-
-// final loginScreen =  Screen(
-//       title: 'Login',
-//       background: DecorationImage(
-//         image: AssetImage('assets/dark_grunge_bk.jpg'),
-//         fit: BoxFit.cover,
-//         colorFilter: ColorFilter.mode(Color(0xAA000000), BlendMode.multiply),
-//       ),
-//       contentBuilder: (BuildContext context) {
-//         return Container(
-//           color: Colors.transparent,
-//           child: ListView(
-//             children: <Widget>[
-//               Text(''),
-//             ],
-//           ),
-//         );
-//       }
-//     );
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key key, this.title}) : super(key: key);

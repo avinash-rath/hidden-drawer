@@ -27,16 +27,16 @@ class _ShowCaseState extends State<ShowCase> {
       ),
     )
   ];
- // static List<String> images1 = [
- //   '1.jpg',
-   // '12.jpg',
-    //'3.jpg',
-  //];
-  //static List<String> images2 = [
-    //'4.jpg',
-    //'5.jpg',
-    //'6.jpg',
- // ];
+//  static List<String> images1 = [
+//    '1.jpg',
+//    '12.jpg',
+//     '3.jpg',
+//   ];
+//   static List<String> images2 = [
+//     '4.jpg',
+//     '5.jpg',
+//     '6.jpg',
+//  ];
   @override
   Widget build(BuildContext context) {
     // controller1.addListener(() {
