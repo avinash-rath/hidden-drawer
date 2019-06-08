@@ -4,7 +4,6 @@ import 'package:hidden_drawer/collaboration.dart';
 
 import 'showcase.dart';
 
-//import 'menu.dart';
 
 class ZoomScaffold extends StatefulWidget {
   final Screen contentScreen;
@@ -133,7 +132,6 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
                   icon: Icon(MaterialCommunityIcons.account_group_outline),
                   activeIcon: Icon(
                     MaterialCommunityIcons.account_group,
-                    color: Theme.of(context).primaryColor,
                   ),
                   title: Text('Collaboration'.toUpperCase())),
               new BottomNavigationBarItem(
@@ -141,7 +139,6 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
                       Icon(MaterialCommunityIcons.account_arrow_right_outline),
                   activeIcon: Icon(
                     MaterialCommunityIcons.account_group,
-                    color: Theme.of(context).primaryColor,
                   ),
                   title: Text('ShowCase'.toUpperCase())),
             ],

@@ -3,7 +3,7 @@ import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 import 'zoom_scaffold.dart';
 
-final restaurantScreen = Screen(
+final dashboardScreen = Screen(
     title: 'HOME',
     background: DecorationImage(
       fit: BoxFit.cover,

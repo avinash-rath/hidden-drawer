@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hidden_drawer/zoom_scaffold.dart';
 
+import 'dashboard_screen.dart';
 import 'login_screen.dart';
 import 'menu.dart';
-import 'restaurant_screen.dart';
 import 'second_screen.dart';
 
 void main() => runApp(MyApp());
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
 );
 
   var selectedMenuItemId = 'dashboard';
-  var activeScreen = restaurantScreen;
+  var activeScreen = dashboardScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -64,8 +64,8 @@ class _HomePageState extends State<HomePage> {
         onMenuItemSelected: (String itemId) {
           selectedMenuItemId = itemId;
           switch(itemId){
-            case 'restaurant' : setState(() {
-              activeScreen = restaurantScreen;
+            case 'dashboard' : setState(() {
+              activeScreen = dashboardScreen;
             });
             break;
 
@@ -75,15 +75,6 @@ class _HomePageState extends State<HomePage> {
               activeScreen = secondScreen;
             }); 
           }
-          // if(itemId == 'restaurant'){
-          //   setState(() {
-          //    activeScreen = restaurantScreen; 
-          //   });
-          // }else{
-          //   setState(() {
-          //    activeScreen = secondScreen; 
-          //   });
-          // }
         },
       ),
     );
