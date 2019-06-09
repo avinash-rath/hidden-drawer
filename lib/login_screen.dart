@@ -2,7 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
+
 import 'main.dart';
+import 'provider_classes.dart';
 import 'signin_button.dart';
 import 'signup.dart';
 import 'teddy_controller.dart';
@@ -110,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                                       _teddyController.submitPassword();
                                       Navigator.of(context)
                                           .push(CupertinoPageRoute(
-                                        builder: (context) => HomePage(),
+                                        builder: (context) => HomePagePreprocessor(),
                                       ));
                                     }),
                                 FlatButton(
