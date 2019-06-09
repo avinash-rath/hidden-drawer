@@ -81,7 +81,8 @@ class _HomePageState extends State<HomePage> {
           switch (itemId) {
             case 'dashboard':
               setState(() {
-                selectedMenuItemId = Provider.of<ScreenChangeNotifier>(context).updateId(itemId);
+                Provider.of<ScreenChangeNotifier>(context).updateId(itemId);
+                selectedMenuItemId = Provider.of<ScreenChangeNotifier>(context).getId();
                 Provider.of<ScreenChangeNotifier>(context).updateScreen(dashboardScreen);
                 activeScreen = Provider.of<ScreenChangeNotifier>(context).getScreen();
               });
