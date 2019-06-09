@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:provider/provider.dart';
 
+import 'provider_classes.dart';
 import 'zoom_scaffold.dart';
 
 final dashboardScreen = Screen(
@@ -10,76 +12,84 @@ final dashboardScreen = Screen(
       image: AssetImage('assets/grey_grunge_bk.jpg'),
     ),
     contentBuilder: (BuildContext context) {
-      return ListView(
-        children: <Widget>[
-          _NewsCard(
-            headImageAssetPath: 'assets/app-643.png',
-            profilePic: 'assets/10.jpg',
-            iconBackgroundColor: Colors.orange,
-            title: 'MetaFlutter',
-            subtitle: 'Learn, explore and experiment with Flutter widgets directly on your phone.',
-            heartCount: 84,
-            tags: ['app', 'web'],
-          ),
-          _NewsCard(
-            headImageAssetPath: 'assets/2.png',
-            iconBackgroundColor: Colors.red,
-            profilePic: 'assets/11.jpg',
-            title: 'AntiClamper',
-            subtitle: 'Simple, smart parking tracker',
-            heartCount: 79,
-            tags: ['app', 'android','open Bugs'],
-          ),
-          _NewsCard(
-            headImageAssetPath: 'assets/3.png',
-            profilePic: 'assets/44.jpg',
-            iconBackgroundColor: Colors.purpleAccent,
-            title: 'REQU by Ameba',
-            subtitle: 'REQU App is the best way to sell your unique skills online.',
-            heartCount: 36,
-            tags: ['app', 'iOS'],
-          ),
-          _NewsCard(
-            headImageAssetPath: 'assets/4.png',
-            iconBackgroundColor: Colors.red,
-            profilePic: 'assets/45.jpg',
-            title: 'Cipherly',
-            subtitle: 'A Password Manager built using flutter!',
-            heartCount: 79,
-            tags: ['app', 'android','open Bugs'],
-          ),
-          _NewsCard(
-            headImageAssetPath: 'assets/5.png',
-            profilePic: 'assets/2.jpg',
-            iconBackgroundColor: Colors.purpleAccent,
-            title: 'GiveActions',
-            subtitle: 'Realize actions to make free donations to associative projects!',
-            heartCount: 36,
-            tags: ['app', 'iOS'],
-          ),
-          _NewsCard(
-            headImageAssetPath: 'assets/6.png',
-            iconBackgroundColor: Colors.red,
-            profilePic: 'assets/67.jpg',
-            title: 'Deko Gallery 1',
-            subtitle: 'The art of ornament through the ages: 100 plates, 2000 specimens of all styles',
-            heartCount: 79,
-            tags: ['app', 'android','open Bugs'],
-          ),
-          _NewsCard(
-            headImageAssetPath: 'assets/7.png',
-            profilePic: 'assets/78.jpg',
-            iconBackgroundColor: Colors.purpleAccent,
-            title: 'The Pocket Piano',
-            subtitle: 'The Pocket Piano is a fully featured piano optimized for all screen sizes.',
-            heartCount: 187,
-            tags: ['app', 'iOS'],
-          ),
-        ],
+      return ChangeNotifierProvider<HeartCounter>(
+        builder: (_) => HeartCounter(0),
+              child: ListView(
+          children: <Widget>[
+            _NewsCard(
+              headImageAssetPath: 'assets/app-643.png',
+              profilePic: 'assets/10.jpg',
+              iconBackgroundColor: Colors.orange,
+              title: 'MetaFlutter',
+              subtitle:
+                  'Learn, explore and experiment with Flutter widgets directly on your phone.',
+              heartCount: 84,
+              tags: ['app', 'web'],
+            ),
+            _NewsCard(
+              headImageAssetPath: 'assets/2.png',
+              iconBackgroundColor: Colors.red,
+              profilePic: 'assets/11.jpg',
+              title: 'AntiClamper',
+              subtitle: 'Simple, smart parking tracker',
+              heartCount: 79,
+              tags: ['app', 'android', 'open Bugs'],
+            ),
+            _NewsCard(
+              headImageAssetPath: 'assets/3.png',
+              profilePic: 'assets/44.jpg',
+              iconBackgroundColor: Colors.purpleAccent,
+              title: 'REQU by Ameba',
+              subtitle:
+                  'REQU App is the best way to sell your unique skills online.',
+              heartCount: 36,
+              tags: ['app', 'iOS'],
+            ),
+            _NewsCard(
+              headImageAssetPath: 'assets/4.png',
+              iconBackgroundColor: Colors.red,
+              profilePic: 'assets/45.jpg',
+              title: 'Cipherly',
+              subtitle: 'A Password Manager built using flutter!',
+              heartCount: 79,
+              tags: ['app', 'android', 'open Bugs'],
+            ),
+            _NewsCard(
+              headImageAssetPath: 'assets/5.png',
+              profilePic: 'assets/2.jpg',
+              iconBackgroundColor: Colors.purpleAccent,
+              title: 'GiveActions',
+              subtitle:
+                  'Realize actions to make free donations to associative projects!',
+              heartCount: 36,
+              tags: ['app', 'iOS'],
+            ),
+            // _NewsCard(
+            //   headImageAssetPath: 'assets/6.png',
+            //   iconBackgroundColor: Colors.red,
+            //   profilePic: 'assets/67.jpg',
+            //   title: 'Deko Gallery 1',
+            //   subtitle:
+            //       'The art of ornament through the ages: 100 plates, 2000 specimens of all styles',
+            //   heartCount: 79,
+            //   tags: ['app', 'android', 'open Bugs'],
+            // ),
+            _NewsCard(
+              headImageAssetPath: 'assets/7.png',
+              profilePic: 'assets/78.jpg',
+              iconBackgroundColor: Colors.purpleAccent,
+              title: 'The Pocket Piano',
+              subtitle:
+                  'The Pocket Piano is a fully featured piano optimized for all screen sizes.',
+              heartCount: 187,
+              tags: ['app', 'iOS'],
+            ),
+          ],
+        ),
       );
     });
 
-class _NewsCard extends StatelessWidget {
+class _NewsCard extends StatefulWidget {
   final String headImageAssetPath;
   final String profilePic;
   final Color iconBackgroundColor;
@@ -99,9 +109,23 @@ class _NewsCard extends StatelessWidget {
   });
 
   @override
+  __NewsCardState createState() => __NewsCardState();
+}
+
+class __NewsCardState extends State<_NewsCard> {
+  int currentCounter;
+  bool isSelected = false;
+
+  @override
+  initState() {
+    super.initState();
+    currentCounter = widget.heartCount;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final List<Widget> _tagsChips = tags != null
-        ? (tags.map<Widget>((String name) {
+    final List<Widget> _tagsChips = widget.tags != null
+        ? (widget.tags.map<Widget>((String name) {
             return Chip(
               key: ValueKey<String>(name),
               backgroundColor: _nameToColor(name),
@@ -121,7 +145,7 @@ class _NewsCard extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Image.asset(
-              headImageAssetPath,
+              widget.headImageAssetPath,
               fit: BoxFit.cover,
               width: double.infinity,
               height: 100.0,
@@ -131,54 +155,52 @@ class _NewsCard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Container(
-                     padding: EdgeInsets.all(2.0),
-                     decoration: BoxDecoration(
-                       color: iconBackgroundColor,
-                       borderRadius: BorderRadius.circular(5.0),
-                     ),
-                     child: Image.asset(
-                       profilePic,
-                       fit: BoxFit.fill,
-                       width: 40,
-                       height: 40,
-                     )
-                   ),
+                      padding: EdgeInsets.all(2.0),
+                      decoration: BoxDecoration(
+                        color: widget.iconBackgroundColor,
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      child: Image.asset(
+                        widget.profilePic,
+                        fit: BoxFit.fill,
+                        width: 40,
+                        height: 40,
+                      )),
                 ),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        title,
+                        widget.title,
                         style: TextStyle(
                           fontSize: 25.0,
                           fontFamily: 'mermaid',
                         ),
                       ),
                       Text(
-                        subtitle,
+                        widget.subtitle,
                         style: TextStyle(
                           fontSize: 14.0,
                           fontFamily: 'bebas-neue0',
                           color: Color(0xFFAAAAAA),
                         ),
                       ),
-                      tags != null && tags.isNotEmpty
-                          ? _ChipsTile(
-                              children: _tagsChips)
+                      widget.tags != null && widget.tags.isNotEmpty
+                          ? _ChipsTile(children: _tagsChips)
                           : Container()
                     ],
                   ),
                 ),
                 Container(
                   width: 2.0,
-                  height: 70.0,
+                  height: 75.0,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        Colors.white,
-                        Colors.white,
                         Color(0xFFAAAAAA),
+                        Color(0xFFAAAAAA),
+                        Colors.white,
                       ],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
@@ -187,14 +209,37 @@ class _NewsCard extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                  child: Column(
-                    children: <Widget>[
-                      Icon(
-                        MaterialCommunityIcons.charity,
-                        color: Colors.blue,
+                  child: Material(
+                    child: InkWell(
+                      splashColor: Colors.black.withOpacity(0.5),
+                      onTap: () {
+                        setState(() {
+                          Provider.of<HeartCounter>(context).setCounter(currentCounter);
+                          isSelected = !isSelected;
+                          // TODO: implement increment counter in database.
+                          isSelected
+                              ? Provider.of<HeartCounter>(context).increment()
+                              : Provider.of<HeartCounter>(context)
+                                  .decrement();
+                          currentCounter =
+                              Provider.of<HeartCounter>(context).getCounter();
+                        });
+                      },
+                      child: Column(
+                        children: <Widget>[
+                          isSelected
+                              ? Icon(
+                                  Icons.favorite,
+                                  color: Colors.red,
+                                )
+                              : Icon(
+                                  MaterialCommunityIcons.charity,
+                                  color: Colors.blue,
+                                ),
+                          Text('$currentCounter'),
+                        ],
                       ),
-                      Text('$heartCount'),
-                    ],
+                    ),
                   ),
                 )
               ],
@@ -220,12 +265,13 @@ class _ChipsTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Widget> cardChildren = <Widget>[
-      label!=null?
-      Container(
-        padding: const EdgeInsets.only(top: 5.0, bottom: 2.0),
-        alignment: Alignment.center,
-        child: Text(label, textAlign: TextAlign.start),
-      ):Container(),
+      label != null
+          ? Container(
+              padding: const EdgeInsets.only(top: 5.0, bottom: 2.0),
+              alignment: Alignment.center,
+              child: Text(label, textAlign: TextAlign.start),
+            )
+          : Container(),
     ];
     if (children.isNotEmpty) {
       cardChildren.add(Wrap(
@@ -252,8 +298,8 @@ class _ChipsTile extends StatelessWidget {
     }
 
     return Column(
-        mainAxisSize: MainAxisSize.min,
-        children: cardChildren,
+      mainAxisSize: MainAxisSize.min,
+      children: cardChildren,
     );
   }
 }

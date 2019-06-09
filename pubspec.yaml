@@ -10,6 +10,7 @@ dependencies:
   cupertino_icons: ^0.1.0
   flutter_vector_icons: ^0.1.0
   flare_flutter:
+  provider:
 
 dev_dependencies:
   flutter_test:
