@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:provider/provider.dart';
 
+import 'collaboration.dart';
 import 'provider_classes.dart';
+import 'showcase.dart';
 import 'zoom_scaffold.dart';
 
 final dashboardScreen = Screen(
@@ -12,7 +14,19 @@ final dashboardScreen = Screen(
       image: AssetImage('assets/grey_grunge_bk.jpg'),
     ),
     contentBuilder: (BuildContext context) {
-      return ChangeNotifierProvider<HeartCounter>(
+      return DashboardScaffold();
+    });
+
+class DashboardScaffold extends StatefulWidget {
+  @override
+  _DashboardScaffoldState createState() => _DashboardScaffoldState();
+}
+
+class _DashboardScaffoldState extends State<DashboardScaffold> {
+  Widget _view;
+  int _currentIndex = 0;
+
+  var dashboardScaffold = ChangeNotifierProvider<HeartCounter>(
         builder: (_) => HeartCounter(0),
               child: ListView(
           children: <Widget>[
@@ -64,16 +78,6 @@ final dashboardScreen = Screen(
               heartCount: 36,
               tags: ['app', 'iOS'],
             ),
-            // _NewsCard(
-            //   headImageAssetPath: 'assets/6.png',
-            //   iconBackgroundColor: Colors.red,
-            //   profilePic: 'assets/67.jpg',
-            //   title: 'Deko Gallery 1',
-            //   subtitle:
-            //       'The art of ornament through the ages: 100 plates, 2000 specimens of all styles',
-            //   heartCount: 79,
-            //   tags: ['app', 'android', 'open Bugs'],
-            // ),
             _NewsCard(
               headImageAssetPath: 'assets/7.png',
               profilePic: 'assets/78.jpg',
@@ -87,7 +91,60 @@ final dashboardScreen = Screen(
           ],
         ),
       );
-    });
+  @override
+  void initState() {
+    super.initState();
+    _view = dashboardScaffold;
+  }
+
+  Widget _getView(int index) {
+    switch (index) {
+      case 0:
+        return dashboardScaffold;
+      case 1:
+        return Collaborations();
+      case 2:
+        return ShowCase();
+      default:
+        return dashboardScaffold;
+    }
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: _view,
+      bottomNavigationBar: BottomNavigationBar(
+            currentIndex: _currentIndex,
+            onTap: (int index) {
+              setState(() {
+                _view = _getView(index);
+                _currentIndex = index;
+              });
+            },
+            items: [
+              new BottomNavigationBarItem(
+                  icon: Icon(MaterialCommunityIcons.view_dashboard_outline),
+                  activeIcon: Icon(MaterialCommunityIcons.view_dashboard),
+                  title: Text('feed'.toUpperCase())),
+              new BottomNavigationBarItem(
+                  icon: Icon(MaterialCommunityIcons.account_group_outline),
+                  activeIcon: Icon(
+                    MaterialCommunityIcons.account_group,
+                  ),
+                  title: Text('Collaboration'.toUpperCase())),
+              new BottomNavigationBarItem(
+                  icon:
+                      Icon(MaterialCommunityIcons.account_arrow_right_outline),
+                  activeIcon: Icon(
+                    MaterialCommunityIcons.account_group,
+                  ),
+                  title: Text('ShowCase'.toUpperCase())),
+            ],
+          ),
+    );
+  }
+}
 
 class _NewsCard extends StatefulWidget {
   final String headImageAssetPath;

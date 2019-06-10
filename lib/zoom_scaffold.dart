@@ -17,8 +17,8 @@ class ZoomScaffold extends StatefulWidget {
 
 class _ZoomScaffoldState extends State<ZoomScaffold>
     with TickerProviderStateMixin {
-  Widget _view;
-  int _currentIndex = 0;
+  // Widget _view;
+  // int _currentIndex = 0;
   MenuController menuController;
   Curve scaleDownCurve = Interval(0.0, 0.3, curve: Curves.easeOut);
   Curve scaleUpCurve = Interval(0.0, 1.0, curve: Curves.easeOut);
@@ -28,7 +28,7 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
   @override
   void initState() {
     super.initState();
-    _view = widget.contentScreen.contentBuilder(context);
+    // _view = widget.contentScreen.contentBuilder(context);
     menuController = MenuController(vsync: this)
       ..addListener(() => setState(() {}));
   }
@@ -115,52 +115,52 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
               },
             ),
           ),
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: _currentIndex,
-            onTap: (int index) {
-              setState(() {
-                _view = _getView(index);
-                _currentIndex = index;
-              });
-            },
-            items: [
-              new BottomNavigationBarItem(
-                  icon: Icon(MaterialCommunityIcons.view_dashboard_outline),
-                  activeIcon: Icon(MaterialCommunityIcons.view_dashboard),
-                  title: Text('feed'.toUpperCase())),
-              new BottomNavigationBarItem(
-                  icon: Icon(MaterialCommunityIcons.account_group_outline),
-                  activeIcon: Icon(
-                    MaterialCommunityIcons.account_group,
-                  ),
-                  title: Text('Collaboration'.toUpperCase())),
-              new BottomNavigationBarItem(
-                  icon:
-                      Icon(MaterialCommunityIcons.account_arrow_right_outline),
-                  activeIcon: Icon(
-                    MaterialCommunityIcons.account_group,
-                  ),
-                  title: Text('ShowCase'.toUpperCase())),
-            ],
-          ),
-          body: _view,
+          // bottomNavigationBar: BottomNavigationBar(
+          //   currentIndex: _currentIndex,
+          //   onTap: (int index) {
+          //     setState(() {
+          //       _view = _getView(index);
+          //       _currentIndex = index;
+          //     });
+          //   },
+          //   items: [
+          //     new BottomNavigationBarItem(
+          //         icon: Icon(MaterialCommunityIcons.view_dashboard_outline),
+          //         activeIcon: Icon(MaterialCommunityIcons.view_dashboard),
+          //         title: Text('feed'.toUpperCase())),
+          //     new BottomNavigationBarItem(
+          //         icon: Icon(MaterialCommunityIcons.account_group_outline),
+          //         activeIcon: Icon(
+          //           MaterialCommunityIcons.account_group,
+          //         ),
+          //         title: Text('Collaboration'.toUpperCase())),
+          //     new BottomNavigationBarItem(
+          //         icon:
+          //             Icon(MaterialCommunityIcons.account_arrow_right_outline),
+          //         activeIcon: Icon(
+          //           MaterialCommunityIcons.account_group,
+          //         ),
+          //         title: Text('ShowCase'.toUpperCase())),
+          //   ],
+          // ),
+          body: widget.contentScreen.contentBuilder(context),
         ),
       ),
     );
   }
 
-  Widget _getView(int index) {
-    switch (index) {
-      case 0:
-        return widget.contentScreen.contentBuilder(context);
-      case 1:
-        return Collaborations();
-      case 2:
-        return ShowCase();
-      default:
-        return widget.contentScreen.contentBuilder(context);
-    }
-  }
+  // Widget _getView(int index) {
+  //   switch (index) {
+  //     case 0:
+  //       return widget.contentScreen.contentBuilder(context);
+  //     case 1:
+  //       return Collaborations();
+  //     case 2:
+  //       return ShowCase();
+  //     default:
+  //       return widget.contentScreen.contentBuilder(context);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {

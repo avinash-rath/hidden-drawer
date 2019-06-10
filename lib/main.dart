@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:hidden_drawer/zoom_scaffold.dart';
 
+import 'account_screen.dart';
 import 'dashboard_screen.dart';
 import 'login_screen.dart';
 import 'menu.dart';
@@ -87,7 +88,13 @@ class _HomePageState extends State<HomePage> {
                 activeScreen = Provider.of<ScreenChangeNotifier>(context).getScreen();
               });
               break;
-
+            case 'account': setState(() {
+             Provider.of<ScreenChangeNotifier>(context).updateId(itemId);
+                selectedMenuItemId = Provider.of<ScreenChangeNotifier>(context).getId();
+                Provider.of<ScreenChangeNotifier>(context).updateScreen(accountScreen);
+                activeScreen = Provider.of<ScreenChangeNotifier>(context).getScreen();
+            });
+             break;
             case 'logout':
               Navigator.of(context).pop(); //TODO: something to do with sessions.
               break;
