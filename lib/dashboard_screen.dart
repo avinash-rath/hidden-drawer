@@ -27,7 +27,7 @@ class _DashboardScaffoldState extends State<DashboardScaffold> {
   int _currentIndex = 0;
 
   var dashboardScaffold = ChangeNotifierProvider<HeartCounter>(
-        builder: (_) => HeartCounter(0),
+        create: (_) => HeartCounter(0),
               child: ListView(
           children: <Widget>[
             _NewsCard(

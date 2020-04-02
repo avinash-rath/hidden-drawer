@@ -6,11 +6,11 @@ class ShowCase extends StatefulWidget {
 }
 
 class _ShowCaseState extends State<ShowCase> {
-  // static PageController controller1 =
-  //     PageController(initialPage: images1.length - 1);
-  //     static PageController controller2 =
-  //     PageController(initialPage: images1.length - 1);
-  // double currentPage = 0.0;
+   static PageController controller1 =
+       PageController(initialPage: images1.length - 1);
+       static PageController controller2 =
+       PageController(initialPage: images1.length - 1);
+   double currentPage = 0.0;
   List<Card> showCaseItems = [
     Card(
       elevation: 0.0,
@@ -27,37 +27,28 @@ class _ShowCaseState extends State<ShowCase> {
       ),
     )
   ];
-//  static List<String> images1 = [
-//    '1.jpg',
-//    '12.jpg',
-//     '3.jpg',
-//   ];
-//   static List<String> images2 = [
-//     '4.jpg',
-//     '5.jpg',
-//     '6.jpg',
-//  ];
+  static List<String> images1 = [
+    '1.jpg',
+    '12.jpg',
+     '3.jpg',
+   ];
+   static List<String> images2 = [
+     '4.jpg',
+     '5.jpg',
+     '6.jpg',
+  ];
   @override
   Widget build(BuildContext context) {
-    // controller1.addListener(() {
-    //   setState(() {
-    //     currentPage = controller1.page;
-    //   });
-    // });
-    // controller2.addListener(() {
-    //   setState(() {
-    //     currentPage = controller2.page;
-    //   });
-    // });
+     controller1.addListener(() {
+       setState(() {
+         currentPage = controller1.page;
+       });
+     });
+     controller2.addListener(() {
+       setState(() {
+         currentPage = controller2.page;
+       });
+     });
     return Container();
-    // return Padding(
-    //   padding: EdgeInsets.all(10.0),
-    //   child: ListView.builder(
-    //     itemCount: 2,
-    //     itemBuilder: (BuildContext context, int count) {
-    //       return showCaseItems[count];
-    //     },
-    //   ),
-    // );
   }
 }
