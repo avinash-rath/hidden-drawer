@@ -96,7 +96,7 @@ class _RestaurantCard extends StatelessWidget {
                 ),
                 Container(
                   width: 2.0,
-                  height: 70.0,
+                  height: 150.0,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [

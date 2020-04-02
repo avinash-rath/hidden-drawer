@@ -27,7 +27,7 @@ class HomePagePreprocessor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ScreenChangeNotifier>(
-      builder: (_) => ScreenChangeNotifier('_'),
+      create: (_) => ScreenChangeNotifier('_'),
       child: HomePage(),
     );
   }
